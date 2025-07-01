@@ -1,0 +1,103 @@
+{
+  "sample_requests": [
+    {
+      "description": "Sample fake news in English",
+      "endpoint": "POST /api/news/analyze",
+      "request": {
+        "title": "BREAKING: Scientists Discover That Drinking Coffee Makes You Immortal!",
+        "content": "In a SHOCKING new study that will BLOW YOUR MIND, researchers have found that drinking just ONE cup of coffee per day can make you live FOREVER! This INCREDIBLE discovery was made by a team of scientists who studied coffee drinkers for over 100 years. The results are absolutely AMAZING and will change everything you know about health and longevity. You won't BELIEVE what happens next!",
+        "sourceUrl": "https://fake-news-example.com",
+        "author": "Dr. Coffee Expert",
+        "language": "en"
+      }
+    },
+    {
+      "description": "Sample real news in English",
+      "endpoint": "POST /api/news/analyze",
+      "request": {
+        "title": "New Study Shows Moderate Coffee Consumption May Have Health Benefits",
+        "content": "A comprehensive study published in the Journal of Nutrition examined the effects of moderate coffee consumption on health outcomes. The research, conducted over a 10-year period with 50,000 participants, found that drinking 2-3 cups of coffee per day was associated with a 15% reduction in cardiovascular disease risk. The study was peer-reviewed and funded by the National Institutes of Health.",
+        "sourceUrl": "https://reputable-news-source.com",
+        "author": "Dr. Sarah Johnson",
+        "language": "en"
+      }
+    },
+    {
+      "description": "Sample fake news in Hindi",
+      "endpoint": "POST /api/news/analyze",
+      "request": {
+        "title": "अविश्वसनीय खबर: पानी पीने से आप अमर हो जाएंगे!",
+        "content": "एक चौंकाने वाली नई रिपोर्ट में पता चला है कि रोज 8 गिलास पानी पीने से आप कभी नहीं मरेंगे! यह अविश्वसनीय खोज वैज्ञानिकों ने की है। आप विश्वास नहीं करेंगे कि क्या होता है!",
+        "sourceUrl": "https://fake-hindi-news.com",
+        "author": "डॉ. पानी एक्सपर्ट",
+        "language": "hi"
+      }
+    },
+    {
+      "description": "Sample real news in Hindi",
+      "endpoint": "POST /api/news/analyze",
+      "request": {
+        "title": "पानी की कमी से होने वाली बीमारियों पर नई रिपोर्ट",
+        "content": "स्वास्थ्य मंत्रालय द्वारा जारी नई रिपोर्ट के अनुसार, देश में पानी की कमी से होने वाली बीमारियों में वृद्धि देखी गई है। रिपोर्ट में कहा गया है कि हर व्यक्ति को दिन में कम से कम 2 लीटर पानी पीना चाहिए।",
+        "sourceUrl": "https://reputable-hindi-news.com",
+        "author": "स्वास्थ्य संवाददाता",
+        "language": "hi"
+      }
+    },
+    {
+      "description": "Sample fake news in Spanish",
+      "endpoint": "POST /api/news/analyze",
+      "request": {
+        "title": "¡INCREÍBLE! Los científicos descubren que el chocolate cura el cáncer",
+        "content": "¡Una noticia que te va a SORPRENDER! Los científicos han descubierto que comer chocolate cura el cáncer en solo 24 horas. ¡Es INCREÍBLE! ¡No vas a creer lo que pasa después!",
+        "sourceUrl": "https://fake-spanish-news.com",
+        "author": "Dr. Chocolate Expert",
+        "language": "es"
+      }
+    }
+  ],
+  "api_endpoints": {
+    "analyze_news": {
+      "method": "POST",
+      "url": "http://localhost:8080/api/news/analyze",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer YOUR_JWT_TOKEN"
+      }
+    },
+    "get_history": {
+      "method": "GET",
+      "url": "http://localhost:8080/api/news/history?page=0&size=10",
+      "headers": {
+        "Authorization": "Bearer YOUR_JWT_TOKEN"
+      }
+    },
+    "get_statistics": {
+      "method": "GET",
+      "url": "http://localhost:8080/api/news/statistics",
+      "headers": {
+        "Authorization": "Bearer YOUR_JWT_TOKEN"
+      }
+    },
+    "get_languages": {
+      "method": "GET",
+      "url": "http://localhost:8080/api/languages",
+      "headers": {}
+    },
+    "detect_language": {
+      "method": "POST",
+      "url": "http://localhost:8080/api/languages/detect",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "text": "Sample text for language detection"
+      }
+    }
+  },
+  "curl_examples": {
+    "analyze_news": "curl -X POST http://localhost:8080/api/news/analyze \\\n  -H 'Content-Type: application/json' \\\n  -H 'Authorization: Bearer YOUR_JWT_TOKEN' \\\n  -d '{\n    \"title\": \"Sample News Title\",\n    \"content\": \"Sample news content for analysis\",\n    \"language\": \"en\"\n  }'",
+    "get_languages": "curl -X GET http://localhost:8080/api/languages",
+    "detect_language": "curl -X POST http://localhost:8080/api/languages/detect \\\n  -H 'Content-Type: application/json' \\\n  -d '{\n    \"text\": \"Sample text for language detection\"\n  }'"
+  }
+} 

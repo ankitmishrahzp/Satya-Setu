@@ -13,11 +13,14 @@ const LoginPage = () => {
     e.preventDefault();
     setError('');
     try {
-      // TODO: Replace with real API call
-      if (username === 'demo' && password === 'demo') {
+      // Demo credentials for testing
+      if ((username === 'demo' && password === 'demo') || 
+          (username === 'admin' && password === 'admin') ||
+          (username === 'user' && password === 'password') ||
+          (username === 'test' && password === 'test')) {
         navigate('/dashboard');
       } else {
-        setError('Invalid username or password');
+        setError('Invalid username or password. Try: demo/demo, admin/admin, user/password, or test/test');
       }
     } catch (err) {
       setError('Login failed. Please try again.');
@@ -36,6 +39,9 @@ const LoginPage = () => {
         <Typography variant="subtitle1" align="center" color="text.secondary" mb={2}>
           Secure the match like Surya did
         </Typography>
+        <Alert severity="info" sx={{ mb: 2 }}>
+          Demo credentials: <strong>demo</strong> / <strong>demo</strong>
+        </Alert>
         {error && <Alert severity="error" sx={{ mb: 2 }}>{error}</Alert>}
         <form onSubmit={handleLogin}>
           <TextField
